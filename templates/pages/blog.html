@@ -1,0 +1,107 @@
+{% extends "base.html" %} 
+
+{% block title %}Yangi zamon - Yangiliklar{% endblock %} 
+
+{% block blog %} 
+
+{% load static %}
+
+<!-- Breadcrumbs -->
+<div class="breadcrumbs overlay">
+    <div class="container">
+        <div class="bread-inner">
+            <div class="row">
+                <div class="col-12">
+                    <h2>Yangiliklar</h2>
+                    <ul class="bread-list">
+                        <li><a href="{% url 'home' %}">Bosh sahifa</a></li>
+                        <li><i class="icofont-simple-right"></i></li>
+                        <li class="active">Yangiliklar</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End Breadcrumbs -->
+
+<!-- Single News -->
+<section class="blog grid section">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-12">
+                <div class="row">
+
+                    {% for x in data %}
+                    <div class="col-lg-6 col-md-6 col-12">
+                        <!-- Single Blog -->
+                        <div class="single-news">
+                            <div class="news-head">
+                                <img src="{{ x.cover.url }}" alt="Photo">
+                            </div>
+                            <div class="news-body">
+                                <div class="news-content">
+                                    <div class="date">{{ x.date }}</div>
+                                    <h2><a href="/yangilik/{{ x.id }}">{{ x.title }}</a></h2>
+                                    <p class="text">{{ x.description }}</p>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- End Single Blog -->
+                    </div>
+                    {% endfor %}
+
+                    <div class="col-12">
+                        <!-- Pagination -->
+                        <div class="pagination">
+                            <ul class="pagination-list">
+                                <li><a href='{% url "blog" %}?page={{ page_obj.previous_page_number }}'><i class="icofont-rounded-left"></i></a></li>
+                               <li>{{ page_obj.number }}</li> dan <li>{{ page_obj.paginator.num_pages }}</li>
+                                {% if page_obj.has_next %}
+                                <li><a href='{% url "blog" %}?page={{ page_obj.next_page_number }}' > Next</a></li>
+
+                                {% endif %}
+                            </ul>
+                        </div>
+                        <!--/ End Pagination -->
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-12">
+                <div class="main-sidebar">
+                    <!-- Single Widget -->
+                    <div class="single-widget search">
+                        <div class="form">
+                            <input type="email" placeholder="Bu yerda qidiring...">
+                            <a class="button" href="#"><i class="fa fa-search"></i></a>
+                        </div>
+                    </div>
+                    <!--/ End Single Widget -->
+                    <!-- Single Widget -->
+                    <div class="single-widget recent-post">
+                        <h3 class="title">Oxirgi yangiliklar</h3>
+                        {% for x in news %}
+                        <!-- Single Post -->
+                        <div class="single-post">
+                            <div class="image">
+                                <img src="{{ x.cover.url }}" alt="Photo">
+                            </div>
+                            <div class="content">
+                                <h5><a href="#">{{ x.title }}</a></h5>
+                                <ul class="comment">
+                                    <li><i class="fa fa-calendar" aria-hidden="true"></i>{{ x.date }}</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <!-- End Single Post -->
+                        {% endfor %}
+                    </div>
+                    <!--/ End Single Widget -->
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!--/ End Single News -->
+
+{% endblock blog %}

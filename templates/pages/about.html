@@ -1,0 +1,79 @@
+{% extends "base.html" %} 
+
+{% block title %}Yangi zamon - Biz Haqimizda{% endblock %} 
+
+{% block about %} 
+
+{% load static %}
+
+		<!-- Breadcrumbs -->
+		<div class="breadcrumbs overlay">
+			<div class="container">
+				<div class="bread-inner">
+					<div class="row">
+						<div class="col-12">
+							<h2>Biz haqimizda</h2>
+							<ul class="bread-list">
+								<li><a href="{% url 'home' %}">Bosh sahifa</a></li>
+								<li><i class="icofont-simple-right"></i></li>
+								<li class="active">BIz haqimizda</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- End Breadcrumbs -->
+
+<!-- Start About Area -->
+<section class="about-area section">
+  <div class="container-fluid p-0">
+      <div class="row m-0">
+          <div class="col-lg-6 col-md-12 p-0">
+              <div>
+                  <img src="{% static "img/about-img.jpg" %}" />
+              </div>
+          </div>
+          <div class="col-lg-6 col-md-12 p-0">
+              <div class="about-content">
+                {% for x in data %}
+                  <span>Biz haqimizda</span>
+                  <h2>{{ x.title }}</h2>
+                  <p>{{ x.description }}</p>
+                  <ul>
+                      <li><i class="icofont-tick-mark"></i>{{ x.info_1 }}</li>
+                      <li><i class="icofont-tick-mark"></i>{{ x.info_2 }}</li>
+                      <li><i class="icofont-tick-mark"></i>{{ x.info_3 }}</li>
+                      <li><i class="icofont-tick-mark"></i>{{ x.info_4 }}</li>
+                      <li><i class="icofont-tick-mark"></i>{{ x.info_5 }}</li>
+                      <li><i class="icofont-tick-mark"></i>{{ x.info_6 }}</li>
+                  </ul>
+                  {% endfor %}
+              </div>
+          </div>
+      </div>
+  </div>
+</section>
+<!-- End About Area -->
+
+<!-- Start Our Vision Area -->
+<section class="our-vision-area ptb-100 pt-0">
+  <div class="container">
+    <div class="row">
+      {% for x in qarashlar %}
+      <div class="col-lg-4 col-md-6 col-12">
+        <div class="single-vision-box">
+          <div class="icon">
+            <i class="icofont-tick-mark"></i>
+          </div>
+          <h3>{{ x.title }}</h3>
+          <p>{{ x.description }}</p>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+<!-- End Our Vision Area -->
+
+{% endblock about %}

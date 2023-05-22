@@ -1,0 +1,52 @@
+{% extends "base.html" %} 
+
+{% block title %}Yangi zamon - Shifokorlar{% endblock %} 
+
+{% block doctors %} 
+
+{% load static %}
+
+<!-- Breadcrumbs -->
+<div class="breadcrumbs overlay">
+    <div class="container">
+        <div class="bread-inner">
+            <div class="row">
+                <div class="col-12">
+                    <h2>Malakali shifokorlarimiz bilan tanishing</h2>
+                    <ul class="bread-list">
+                        <li><a href="{% url 'home' %}">Bosh sahifa</a></li>
+                        <li><i class="icofont-simple-right"></i></li>
+                        <li class="active">Shifokorlar</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End Breadcrumbs -->
+
+<!-- Start Team -->
+<section id="team" class="team section single-page">
+    <div class="container">
+        <div class="row">
+            {% for x in data %}
+            <div class="col-lg-4 col-md-6 col-12">
+                <!-- Single Team -->
+                <div class="single-team">
+                    <div class="t-head">
+                        <img src="{{ x.cover.url }}" alt="Photo">
+                    </div>
+                    <div class="t-bottom">
+                        <p>{{ x.title }}</p>
+                        <h2>{{ x.name }}</h2>
+                    </div>
+                </div>
+                <!-- End Single Team --> 
+            </div>	
+            {% endfor %}
+        </div>
+    </div>
+</section>
+<!--/ End Team -->
+
+{% endblock doctors %}

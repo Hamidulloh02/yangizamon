@@ -1,0 +1,112 @@
+{% extends "base.html" %} 
+
+{% block title %}Yangi zamon - Kassalik{% endblock %} 
+
+{% block disease_single %} 
+
+{% load static %}
+
+{% load hitcount_tags %}
+
+		<!-- Breadcrumbs -->
+		<div class="breadcrumbs overlay">
+			<div class="container">
+				<div class="bread-inner">
+					<div class="row">
+						<div class="col-12">
+							<h2>Kassallikga Yechim</h2>
+							<ul class="bread-list">
+								<li><a href="{% url 'home' %}">Bosh sahifa</a></li>
+								<li><i class="icofont-simple-right"></i></li>
+								<li class="active">Kassallikga Yechim</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- End Breadcrumbs -->
+
+		<!-- Single News -->
+		<section class="news-single section">
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-8 col-12">
+						<div class="row">
+							<div class="col-12">
+								<div class="single-main">
+									<!-- News Head -->
+									<div class="news-head">
+										<img src="{{ data.cover.url}}" alt="Photo">
+									</div>
+									<!-- News Title -->
+									<h1 class="news-title"><a href="blog-single.html">{{ data.title}}</a></h1>
+									<!-- Meta -->
+									<div class="meta">
+										<div class="meta-left">
+											<span class="date"><i class="fa fa-clock-o"></i>{{ data.date}}</span>
+										</div>
+										<div class="meta-right">
+											<span class="views"><i class="fa fa-eye"></i>{% get_hit_count for data %} koʻrish</span>
+										</div>
+									</div>
+									<!-- News Text -->
+									<div class="news-text">
+										<p>{{ data.description}}</p>
+									</div>
+									<div class="blog-bottom">
+										<!-- Social Share -->
+										<ul class="social-share">
+											<li class="facebook"><a href="#"><i class="fa fa-facebook"></i><span>Facebook</span></a></li>
+											<li class="twitter"><a href="#"><i class="fa fa-twitter"></i><span>Twitter</span></a></li>
+											<li class="linkedin"><a href="#"><i class="fa fa-linkedin"></i></a></li>
+										</ul>
+										<!-- Next Prev -->
+										<ul class="prev-next">
+											<li class="prev"><a href="#"><i class="fa fa-angle-double-left"></i></a></li>
+											<li class="next"><a href="#"><i class="fa fa-angle-double-right"></i></a></li>
+										</ul>
+										<!--/ End Next Prev -->
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-4 col-12">
+						<div class="main-sidebar">
+							<!-- Single Widget -->
+							<div class="single-widget search">
+								<div class="form">
+									<input type="email" placeholder="Search Here...">
+									<a class="button" href="#"><i class="fa fa-search"></i></a>
+								</div>
+							</div>
+							<!--/ End Single Widget -->
+							<!-- Single Widget -->
+							<div class="single-widget recent-post">
+								<h3 class="title">Oxirgi post</h3>
+								{% for x in news %}
+								<!-- Single Post -->
+								<div class="single-post">
+									<div class="image">
+										<img src="{{ x.cover.url }}" alt="Photo">
+									</div>
+									<div class="content">
+										<h5><a href="#">{{ x.title }}</a></h5>
+										<ul class="comment">
+											<li><i class="fa fa-calendar" aria-hidden="true"></i>{{ x.date }}</li>
+										</ul>
+									</div>
+								</div>
+								<!-- End Single Post -->
+                                {% endfor %}
+							</div>
+							<!--/ End Single Widget -->
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		<!--/ End Single News -->
+
+{% endblock disease_single %}

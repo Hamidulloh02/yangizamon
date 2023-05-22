@@ -1,0 +1,361 @@
+{% extends "base.html" %}
+
+{% block title %}Yangi zamon - Bosh sahifa{% endblock %}
+
+{% block home %}
+
+{% load static %}
+
+<!-- Slider Area -->
+<section class="slider index2">
+    <div class="hero-slider">
+        <!-- Start Single Slider -->
+        {% for x in data %}
+        <div class="single-slider" style="background-image:url('{{ x.cover.url }}')">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-7">
+                        <div class="text">
+                            <h1>{{ x.title }}</h1>
+                            <!-- <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris sed nisl pellentesque, faucibus libero eu, gravida quam. </p> -->
+                            <div class="button">
+                                {% comment %} <a href="uchrashuv.html" class="btn">Uchrashuvni olish</a> {% endcomment %}
+                                <a href="{% url 'about' %}" class="btn primary">Batafsil ma'lumot</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+        <!-- End Single Slider -->
+    </div>
+</section>
+<!--/ End Slider Area -->
+
+<!-- Start Feautes -->
+<section class="Feautes index2 section">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="section-title">
+                    <h2>Biz sizga va oilangizga yordam berishga doim tayyormiz</h2>
+                    <img src="{% static 'img/section-img.png' %}" alt="logo">
+                    <!-- <p>Lorem ipsum dolor sit amet consectetur adipisc1ing elit praesent aliquet. pretiumts</p> -->
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-4 col-12">
+                <!-- Start Single features -->
+                <div class="single-features wow fadeIn" data-wow-delay="0.4s" data-wow-duration="1s">
+                    <div class="signle-icon">
+                        <i class="icofont icofont-ambulance-cross"></i>
+                    </div>
+                    <h3>Favqulodda yordam</h3>
+                    <!-- <p>Lorem ipsum sit, consectetur adipiscing elit. Maecenas mi quam vulputate.</p> -->
+                </div>
+                <!-- End Single features -->
+            </div>
+            <div class="col-lg-4 col-12">
+                <!-- Start Single features -->
+                <div class="single-features wow fadeIn" data-wow-delay="0.6s" data-wow-duration="1s">
+                    <div class="signle-icon">
+                        <i class="icofont icofont-medical-sign-alt"></i>
+                    </div>
+                    <h3>Boyitilgan dorixona</h3>
+                    <!-- <p>Lorem ipsum sit, consectetur adipiscing elit. Maecenas mi quam vulputate.</p> -->
+                </div>
+                <!-- End Single features -->
+            </div>
+            <div class="col-lg-4 col-12">
+                <!-- Start Single features -->
+                <div class="single-features last wow fadeIn" data-wow-delay="0.6s" data-wow-duration="1s">
+                    <div class="signle-icon">
+                        <i class="icofont icofont-stethoscope"></i>
+                    </div>
+                    <h3>Tibbiy davolash</h3>
+                    <!-- <p>Lorem ipsum sit, consectetur adipiscing elit. Maecenas mi quam vulputate.</p> -->
+                </div>
+                <!-- End Single features -->
+            </div>
+        </div>
+    </div>
+</section>
+<!--/ End Feautes -->
+
+<!-- Start Fun-facts -->
+<div id="fun-facts" class="fun-facts section overlay">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-3 col-md-6 col-12">
+                <!-- Start Single Fun -->
+                <div class="single-fun wow fadeIn" data-wow-delay="1s" data-wow-duration="0.5s">
+                    <i class="icofont icofont-home"></i>
+                    <div class="content">
+                        <span class="counter">100+</span>
+                        <p>Kasalxona xonalari</p>
+                    </div>
+                </div>
+                <!-- End Single Fun -->
+            </div>
+            <div class="col-lg-3 col-md-6 col-12">
+                <!-- Start Single Fun -->
+                <div class="single-fun wow fadeIn" data-wow-delay="0.8s" data-wow-duration="0.5s">
+                    <i class="icofont icofont-user-alt-3"></i>
+                    <div class="content">
+                        <span class="counter">50+</span>
+                        <p>Ixtisoslashgan shifokorlar</p>
+                    </div>
+                </div>
+                <!-- End Single Fun -->
+            </div>
+            <div class="col-lg-3 col-md-6 col-12">
+                <!-- Start Single Fun -->
+                <div class="single-fun wow fadeIn" data-wow-delay="0.6s" data-wow-duration="0.5s">
+                    <i class="icofont-simple-smile"></i>
+                    <div class="content">
+                        <span class="counter">400+</span>
+                        <p>Baxtli bemorlar</p>
+                    </div>
+                </div>
+                <!-- End Single Fun -->
+            </div>
+            <div class="col-lg-3 col-md-6 col-12">
+                <!-- Start Single Fun -->
+                <div class="single-fun wow fadeIn" data-wow-delay="0.4s" data-wow-duration="0.5s">
+                    <i class="icofont icofont-table"></i>
+                    <div class="content">
+                        <span class="counter">10+</span>
+                        <p>Yillik Tajriba</p>
+                    </div>
+                </div>
+                <!-- End Single Fun -->
+            </div>
+        </div>
+    </div>
+</div>
+<!--/ End Fun-facts -->
+
+
+
+<!-- Start Call to action -->
+<section class="call-action overlay" data-stellar-background-ratio="0.5">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-12">
+                <div class="content">
+                    <h2>Shoshilinch tibbiy yordam kerakmi?</h2>
+                    <br/>
+                    <div class="button">
+                        <a href="tel:+998992312433" class="btn">Hozir murojaat qiling</a>
+                        <a href="{% url 'about' %}" class="btn second">Batafsil ma'lumot<i class="fa fa-long-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!--/ End Call to action -->
+
+<!-- Start portfolio -->
+<section class="portfolio section" >
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="section-title">
+                    <h2>Kasalxonamiz ichida tozalik qoidalariga rioya qilamiz</h2>
+                    <img src="{% static 'img/section-img.png' %}" alt="Photo">
+                    <!-- <p>Lorem ipsum dolor sit amet consectetur adipiscing elit praesent aliquet. pretiumts</p> -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-12 col-12">
+                <div class="owl-carousel portfolio-slider">
+                    {% for x in clean %}
+                    <div class="single-pf wow fadeIn" data-wow-delay="0.2s" data-wow-duration="0.8s">
+                        <img src="{{ x.cover.url }}" alt="Photo">
+                        <p class="btn">{{ x.title }}</p>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!--/ End portfolio -->
+
+<!-- Start service -->
+<section class="services section">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="section-title">
+                    <h2>Biz sizning sog'lig'ingizni yaxshilash uchun turli xizmatlarni taklif qilamiz</h2>
+                    <img src="{% static 'img/section-img.png' %}" alt="Photo">
+                    <!-- <p>Lorem ipsum dolor sit amet consectetur adipiscing elit praesent aliquet. pretiumts</p> -->
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-4 col-md-6 col-12">
+                <!-- Start Single Service -->
+                <div class="single-service wow fadeInUp" data-wow-delay="0.4s" data-wow-duration="1s">
+                    <i class="icofont icofont-prescription"></i>
+                    <h4><a href="#">Umumiy davolash</a></h4>
+                    <!-- <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec luctus dictum eros ut imperdiet. </p>	 -->
+                </div>
+                <!-- End Single Service -->
+            </div>
+            <div class="col-lg-4 col-md-6 col-12">
+                <!-- Start Single Service -->
+                <div class="single-service wow fadeInUp" data-wow-delay="0.6s" data-wow-duration="1s">
+                    <i class="icofont icofont-tooth"></i>
+                    <h4><a href="#">Tishlarni oqartirish</a></h4>
+                    <!-- <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec luctus dictum eros ut imperdiet. </p>	 -->
+                </div>
+                <!-- End Single Service -->
+            </div>
+            <div class="col-lg-4 col-md-6 col-12">
+                <!-- Start Single Service -->
+                <div class="single-service wow fadeInUp" data-wow-delay="0.8s" data-wow-duration="1s">
+                    <i class="icofont icofont-heart-alt"></i>
+                    <h4><a href="#">Yurak jarrohligi</a></h4>
+                    <!-- <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec luctus dictum eros ut imperdiet. </p>	 -->
+                </div>
+                <!-- End Single Service -->
+            </div>
+            <div class="col-lg-4 col-md-6 col-12">
+                <!-- Start Single Service -->
+                <div class="single-service wow fadeInUp" data-wow-delay="1s" data-wow-duration="1s">
+                    <i class="icofont icofont-listening"></i>
+                    <h4><a href="#">Quloqni davolash</a></h4>
+                    <!-- <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec luctus dictum eros ut imperdiet. </p>	 -->
+                </div>
+                <!-- End Single Service -->
+            </div>
+            <div class="col-lg-4 col-md-6 col-12">
+                <!-- Start Single Service -->
+                <div class="single-service wow fadeInUp" data-wow-delay="1.2s" data-wow-duration="1s">
+                    <i class="icofont icofont-eye-alt"></i>
+                    <h4><a href="#">Ko'rish muammolari</a></h4>
+                    <!-- <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec luctus dictum eros ut imperdiet. </p>	 -->
+                </div>
+                <!-- End Single Service -->
+            </div>
+            <div class="col-lg-4 col-md-6 col-12">
+                <!-- Start Single Service -->
+                <div class="single-service wow fadeInUp" data-wow-delay="1.4s" data-wow-duration="1s">
+                    <i class="icofont icofont-blood"></i>
+                    <h4><a href="#">Qon quyish</a></h4>
+                    <!-- <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec luctus dictum eros ut imperdiet. </p>	 -->
+                </div>
+                <!-- End Single Service -->
+            </div>
+        </div>
+    </div>
+</section>
+<!--/ End service -->
+
+<!-- Start Testimonials -->
+<section class="section testimonials overlay" data-stellar-background-ratio="0.5">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="section-title">
+                    <h2>Bemorlarimiz tibbiy muolajalarimiz haqida nima deyishadi</h2>
+                    <img src="{% static 'img/section-img2.png' %}" alt="Photo">
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12 col-12">
+                <div class="owl-carousel testimonial-slider">
+                    {% for x in tavsifnoma %}
+                    <!-- Start Single Testimonial -->
+                    <div class="single-testimonial">
+                        <img src="{% static 'img/Sample_User_Icon.jpg' %}" alt="Photo">
+                        <p>{{ x.description }}</p>
+                        <h4 class="name">{{ x.name }}</h4>
+                    </div>
+                    <!-- End Single Testimonial -->
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!--/ End Testimonials -->
+
+<!-- Start Team -->
+<section id="team" class="team section overlay" data-stellar-background-ratio="0.5">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="section-title">
+                    <h2>Muammolaringizni hal qilish uchun bizda mutaxassis shifokorlar bor</h2>
+                    <img src="{% static 'img/section-img2.png' %}" alt="Photo">
+                    <!-- <p>Lorem ipsum dol1or sit amet consectetur adipiscing elit praesent aliquet. pretiumts</p> -->
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            {% for x in shifokor %}
+            <div class="col-lg-3 col-md-6 col-12" data-tilt>
+                <!-- Single Team -->
+                <div class="single-team wow fadeInUp" data-wow-delay="0.4s" data-wow-duration="1s">
+                    <div class="t-head">
+                        <img src="{{ x.cover.url }}" alt="Photo">
+                    </div>
+                    <div class="t-bottom">
+                        <p>{{ x.title }}</p>
+                        <h2>{{ x.name }}</h2>
+                    </div>
+                </div>
+                <!-- End Single Team -->
+            </div>	
+            {% endfor %}
+        </div>
+    </div>
+</section>
+<!--/ End Team -->
+
+<!-- Start Blog Area -->
+<section class="blog section" id="blog">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="section-title">
+                    <h2>Bizning eng so'nggi tibbiy yangiliklarimizdan xabardor bo'ling</h2>
+                    <img src="{% static 'img/section-img.png' %}" alt="Photo">
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            {% for x in news %}
+            <div class="col-lg-4 col-md-6 col-12">
+                <!-- Single Blog -->
+                <div class="single-news wow fadeInUp" data-wow-delay="0.4s" data-wow-duration="1s">
+                    <div class="news-head">
+                        <img src="{{ x.cover.url }}" alt="Photo">
+                    </div>
+                    <div class="news-body">
+                        <div class="news-content">
+                            <div class="date">{{ x.date }}</div>
+                            <h2><a href="/yangilik/{{ x.id }}">{{ x.title }}</a></h2>
+                            <p class="text">{{ x.description }}</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- End Single Blog -->
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+<!-- End Blog Area -->
+
+{% endblock home %}
